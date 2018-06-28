@@ -31,7 +31,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    if post.user_id != current_user.id
+      redirect_to action: :index
+    else
+      @post = Post.find(params[:id])
+    end
   end
 
   private
