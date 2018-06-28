@@ -1,0 +1,6 @@
+<div class="contents row">
+  <% @posts.each do |post| %>
+    <%= render partial: "post" , locals: {post: post }%>
+    <!-- renderで部分テンプレート読み込み，ローカルでpost使用許可 -->
+  <% end %>
+</div>

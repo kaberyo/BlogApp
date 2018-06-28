@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blogapp</title>
+  <style type="text/css" href="./style.css"></style>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <script type="text/javascript">
+      WebFontConfig = {
+        google: { families: [ 'Unica+One::latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+    </script>
+
+</head>
+
+<body>
+<header>
+  <nav class="orange lighten-1">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">BlogApp</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
+        <li><%= link_to "#{current_user.nickname}" %></li>
+        <li><%= link_to "New Post", new_post_path, class: 'post' %></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+        <li><%= link_to "Sign In", new_user_session_path, class: 'post' %></li>
+        <li><%= link_to "Sign Up", new_user_registration_path, class: 'post' %></li>
+      </ul>
+      <% end %>
+    </div>
+  </nav>
+</header>
+
+<%= yield %>
+
+</body>
+</html>

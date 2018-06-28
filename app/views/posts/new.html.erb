@@ -1,0 +1,12 @@
+<% @post = Post.new unless @post %>
+<%= form_for [@post] do |f| %>
+  <div class="row">
+    <div class="input-field col s8 offset-s2">
+      <%= f.label :本文 %></br>
+      <%= f.text_field :text %>
+      <button class="btn waves-effect waves-light orange lighten-1">
+        <%= f.submit "Submit" %>
+      </button>
+    </div>
+  </div>
+<% end %>
