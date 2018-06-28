@@ -39,7 +39,7 @@
   <nav class="orange lighten-1">
     <div class="nav-wrapper">
       <a href="/" class="brand-logo">BlogApp</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <ul id="nav-wrapper" class="right hide-on-med-and-down">
         <% if user_signed_in? %>
         <li><%= link_to "#{current_user.nickname}" %></li>
         <li><%= link_to "New Post", new_post_path, class: 'post' %></li>
@@ -47,8 +47,8 @@
         <% else %>
         <li><%= link_to "Sign In", new_user_session_path, class: 'post' %></li>
         <li><%= link_to "Sign Up", new_user_registration_path, class: 'post' %></li>
+        <% end %>
       </ul>
-      <% end %>
     </div>
   </nav>
 </header>
