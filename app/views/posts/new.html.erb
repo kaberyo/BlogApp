@@ -2,8 +2,8 @@
 <%= form_for [@post] do |f| %>
   <div class="row col s12">
     <div class="input-field col s8 offset-s2">
-      <%= f.label :"New Post" %></br>
-      <%= f.text_field :text, placeholder: "本文" %>
+      <%= f.label :"New Post" %></br></br>
+      <%= f.text_area :text, placeholder: "本文", class: "materialize-textarea" %>
       <button class="btn waves-effect waves-light orange lighten-1">
         <%= f.submit "Submit" %>
       </button>
