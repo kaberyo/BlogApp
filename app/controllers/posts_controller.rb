@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: :index
 
   def index
-    @posts = Post.order("created_at DESC") #@postにpostsテーブルのデータを全て代入
+    @posts = Post.order("created_at DESC").page(params[:page]).per(5) #@postにpostsテーブルのデータを全て代入
   end
 
   def new
