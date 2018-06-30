@@ -2,7 +2,7 @@
   <div class="col s8 offset-s2">
     <div class="card orange lighten-5">
       <div class="card-content gray-text">
-      投稿者：<%= post.name %>
+      ユーザー：<%= post.name %>
       <%= simple_format(post.text) %>
       </div>
       <% if user_signed_in? %>
